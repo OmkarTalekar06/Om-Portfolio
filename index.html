@@ -1,123 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Om's Portfolio</title>
-    <link rel="icon" type="image/png" href="logo.png">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om's Portfolio</title>
+<link rel="icon" type="image/png" href="logo.png">
+
 <style>
-    body{
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-    #head{
-        top: 0;
-        width: 99%;
-        height: 30vh;
-        background-color: aqua;
-    }
-    #nav{
-        float: left;
-        height: 12vh;
-        width: 99%;
-        background-color: aquamarine;
-        margin-top: 1%;
-	display: flex;
-    }
-    .nav-txt{
-        float: left;
-        margin-left: 10%;
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-        padding-bottom: 10px;
-        
-    }
-    a {
-    text-decoration: none;
-    color: inherit;
-    }
-    @keyframes fade_IN {
-        0%{
-            color: black;
-            opacity: 100%;
-        }
-        20%{
-            color: rgb(255, 255, 255);
-            opacity: 50%;
-        }
-        40%{
-            color: black;
-            opacity: 100%;
-        }
-        60%{
-            color: rgb(254, 254, 254);
-            opacity: 50%;
-        }
-        80%{
-            color: black;
-            opacity: 75%;
-        }
-        100%{
-            color: rgb(255, 254, 254);
-            opacity: 100%;
-        }
-    }
-    h2:hover{
-        animation: fade_IN 2s ease-in-out;
-        cursor: pointer;
-    }
-    #github{
-        font-size: 12px;
-        height: 10vh;
-        width: 3%;
-        background-color: black;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-left: 98%;
-        flex-direction: column;
-        border-radius: 20%;
-        margin-bottom: 5%;
-    }
-    .git{
-        color: aliceblue;
-        margin: 2px 0;
-    }
-    img{
-        border-radius: 15px
-    }
+*{
+    box-sizing:border-box;
+}
 
-    @media only screen and (max-width:600px) {
-       h1{
-        font-size: 30px;
-       }
-    }
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+}
+
+
+#head{
+    min-height:30vh;
+    background:linear-gradient(to right, #00c6ff, #0072ff);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+#head h1{
+    color:white;
+    font-size:clamp(26px, 5vw, 60px);
+    margin:0;
+}
+
+
+#nav{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    background:white;
+    padding:15px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    flex-wrap:nowrap;        
+    overflow-x:auto;        
+}
+
+.nav-txt{
+    font-size:clamp(14px, 3.5vw, 22px);
+    white-space:nowrap;     
+}
+
+
+a{
+    text-decoration:none;
+    color:#333;
+}
+
+
+@keyframes fade_IN{
+    0%{opacity:1;}
+    50%{opacity:0.6;}
+    100%{opacity:1;}
+}
+
+h2:hover{
+    animation:fade_IN 1.2s;
+    cursor:pointer;
+}
+
+
+.social{
+    position:fixed;
+    right:15px;
+    bottom:15px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.social a{
+    background:black;
+    width:48px;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+}
+
+.social img{
+    width:26px;
+    height:26px;
+}
 </style>
-<body>
-    <div id="head">
-        <h1 style="font-family:Baskerville Old Face; font-size: 60px; margin: 1%; padding: 9%; ">Omkar Santosh Talekar</h1>
-    </div>
-    <div id="nav">
-        <h2 class="nav-txt">
-            <a href="profile.html" target="_blank">Profile</a>
-        </h2>
+</head>
 
-        <h2 class="nav-txt">
-            <a href="projects.html" target="_blank">Projects</a>
-        </h2>
-        <h2 class="nav-txt">
-            Others
-        </h2>
-    </div>
-    <div id="github">
-        <a href="https://github.com/OmkarTalekar06"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" width="30" height="30"> </a>
-    </div>
-    <div id="github">
-        <a href="https://www.instagram.com/omkar_talekar06?igsh=MThsOGI1ZWZ6Z25yMQ==" ><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo" width="30" height="30"></a>
-    </div>
-    
-    
+<body>
+
+<div id="head">
+    <h1>Omkar Santosh Talekar</h1>
+</div>
+
+<div id="nav">
+    <h2 class="nav-txt"><a href="profile.html" target="_blank">Profile</a></h2>
+    <h2 class="nav-txt"><a href="projects.html" target="_blank">Projects</a></h2>
+    <h2 class="nav-txt">Others</h2>
+</div>
+
+<div class="social">
+    <a href="https://github.com/OmkarTalekar06" target="_blank">
+        <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">
+    </a>
+    <a href="https://www.instagram.com/omkar_talekar06" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+    </a>
+</div>
 
 </body>
 </html>
