@@ -1,104 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="icon" type="image/png" href="logo.png">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Projects</title>
+<link rel="icon" type="image/png" href="logo.png">
+
 <style>
-    body{
-        margin: 0;
-        padding: 0;
-    }
-    .pro{
-        height: 50vh;
-        width: 20%;
-        float: left;
-        background-color: aliceblue;
-        margin-left: 4%;
-        margin-top: 5%;
-        border: solid 1px black;
-    }
-    .up{
-        height: 50%;
-        background-color: rgb(111, 134, 150);
-        padding: 0;
-    }
-    .down{
-        height: 50%; 
-        background-color: black; 
-        color: aliceblue; 
-        margin-top: 0;
-        
-    }
-    .topic{
-        font-family: Comic Sans MS; 
-        margin-left: 15px; 
-        margin-top: 0;
-    }
-    .down:hover{
-        background-color:  white;
-        color: black;
-    }
-    a{
-        text-decoration: none;
-        color: inherit;
-    }
-
-   @media only screen and (max-width: 400px) {
-    .pro {
-        width: 90%;
-        margin-left: 5%;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-@media only screen and (min-width: 401px) and (max-width: 600px) {
-    .pro {
-        width: 80%;
-        margin-left: 10%;
-    }
+html, body{
+    overflow-x:hidden;
 }
 
-@media only screen and (min-width: 601px) and (max-width: 767px) {
-    .pro {
-        width: 70%;
-        margin-left: 15%;
-    }
+body{
+    font-family:"Segoe UI", sans-serif;
+    background:#0f172a;
+    color:#e5e7eb;
 }
 
+/* ===== STAR BACKGROUND ===== */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 40% 70%, white, transparent),
+        radial-gradient(3px 3px at 60% 20%, white, transparent),
+        radial-gradient(2px 2px at 80% 80%, white, transparent),
+        radial-gradient(3px 3px at 10% 90%, white, transparent),
+        radial-gradient(4px 4px at 50% 50%, white, transparent);
+    background-size:200px 200px;
+    animation:starsMove 60s linear infinite;
+    z-index:-1;
+    opacity:0.7;
+}
+
+@keyframes starsMove{
+    from{background-position:0 0;}
+    to{background-position:1000px 1000px;}
+}
+
+/* ===== HEADER ===== */
+.header{
+    height:30vh;
+    background:radial-gradient(circle at top, #38bdf8, #1e3a8a);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.header h1{
+    font-size:3rem;
+}
+
+/* ===== NAV ===== */
+.nav{
+    background:#0c1a57;
+    padding:15px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+
+.nav a{
+    text-decoration:none;
+    color:#e5e7eb;
+    font-size:1.1rem;
+    position:relative;
+}
+
+.nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#38bdf8;
+    transition:0.3s;
+}
+
+.nav a:hover::after{
+    width:100%;
+}
+
+/* ===== PROJECT GRID ===== */
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:30px;
+    padding:60px 20px;
+}
+
+/* ===== PROJECT CARD ===== */
+.project{
+    background:#020617;
+    border:1px solid #1e293b;
+    border-radius:10px;
+    padding:25px;
+    text-align:center;
+    transition:0.4s;
+    animation:fadeUp 0.8s ease forwards;
+}
+
+.project:hover{
+    transform:translateY(-10px) scale(1.03);
+    border-color:#38bdf8;
+    box-shadow:0 12px 25px rgba(56,189,248,0.25);
+}
+
+/* logo */
+.project img{
+    width:60px;
+    height:60px;
+    margin-bottom:15px;
+    transition:0.3s;
+}
+
+.project:hover img{
+    transform:scale(1.15);
+}
+
+/* text */
+.project h2{
+    color:#38bdf8;
+    margin-bottom:8px;
+    font-size:1.3rem;
+}
+
+.project p{
+    color:#cbd5f5;
+    font-size:0.95rem;
+}
+
+/* link */
+.project a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* ===== CTA ===== */
+.cta{
+    padding:60px 20px;
+    text-align:center;
+    background:linear-gradient(to right, #1e3a8a, #38bdf8);
+    color:white;
+}
+
+.cta h2{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:500px){
+    .header h1{font-size:2rem;}
+    .cta h2{font-size:1.5rem;}
+}
 </style>
+</head>
+
 <body>
-    <div style="width: 100%; height: 20vh; background-color: black; padding-top: 5%;">
-        <h1 style="margin-top: 0px; color: aliceblue; margin-bottom: 30px; margin-left: 30px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">My Projects</h1>
-    </div>
-    <div class="pro" title="voting project" >
-        <div class="up"></div>
-        <a href="https://voting-website-86dba.web.app/">
-        <div class="down">
-            <h2 class="topic"> Voting project &#8594</h2>
-        </div>
+
+<!-- HEADER -->
+<div class="header">
+    <h1>My Projects</h1>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+</div>
+
+<!-- PROJECTS -->
+<div class="projects">
+
+    <div class="project">
+        <a href="https://voting-website-86dba.web.app/" target="_blank">
+            <img src="vote.png">
+            <h2>Voting Project</h2>
+            <p>Online voting system with authentication.</p>
         </a>
     </div>
-    <div class="pro">
-        <div class="up"></div>
-        <a href="https://animal-welfare-website.netlify.app/">
-        <div class="down">
-            <h2 class="topic">Animal Welfare Website &#8594</h2>
-        </div></a>
-        </div>
-    <div class="pro">
-        <div class="up"></div>
-        <a href="https://quizbucket.netlify.app/">
-        <div class="down">
-            <h2 class="topic">Quizbucket &#8594</h2>
-        </div></a>
-        </div>
-    <div class="pro">
-        <div class="up"></div>
-        <div class="down">
-            <h2 class="topic">Research paper &#8594</h2>
-        </div>
+
+    <div class="project">
+        <a href="https://animal-welfare-website.netlify.app/" target="_blank">
+            <img src="animal.png">
+            <h2>Animal Welfare Website</h2>
+            <p>NGO awareness and frontend website.</p>
+        </a>
     </div>
+
+    <div class="project">
+        <a href="https://quizbucket.netlify.app/" target="_blank">
+            <img src="quiz.png">
+            <h2>QuizBucket</h2>
+            <p>Quiz platform with score tracking.</p>
+        </a>
+    </div>
+
+    <div class="project">
+        <a href="#">
+            <img src="research.png">
+            <h2>Research Paper</h2>
+            <p>Academic research submission.</p>
+        </a>
+    </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+    <h2>Open to Internships & Collaborations</h2>
+    <p>Let’s build something meaningful together.</p>
+</div>
+
 </body>
 </html>
