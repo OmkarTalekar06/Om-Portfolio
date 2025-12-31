@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="logo.png">
 <title>Om's Portfolio</title>
 
 <style>
@@ -14,7 +13,7 @@
 }
 
 html, body {
-    overflow-x: hidden; 
+    overflow-x: hidden; /* prevents horizontal scroll */
 }
 
 body {
@@ -146,7 +145,19 @@ a {
     padding: 60px 10px;
     justify-items: center;
     width: 100%;
+}.project img {
+    width: 100px;       /* bigger logo */
+    height: 100px;
+    object-fit: contain; /* maintain aspect ratio */
+    display: block;
+    margin: 0 auto 15px auto;
+    transition: transform 0.3s ease;
 }
+
+.project:hover img {
+    transform: scale(1.1); /* subtle hover effect */
+}
+
 
 .project {
     background: #020617;
@@ -272,6 +283,16 @@ body::before {
         gap: 20px;
         padding: 40px 10px;
     }
+    /* ===== PROJECT LOGO (RESPONSIVE & AUTO-SCALED) ===== */
+.project img {
+    width: 60px;          /* fixed width */
+    height: 60px;         /* fixed height */
+    max-width: 100%;      /* never exceed container */
+    object-fit: contain;  /* maintain aspect ratio */
+    margin: 0 auto 12px auto;
+    display: block;
+}
+
     .project {
         max-width: 100%;
     }
@@ -345,23 +366,33 @@ body::before {
     </div>
 
 <div class="projects">
+
     <div class="project" onclick="window.location.href='tictactoe.html'">
+        <img src="Assets/index-logos/logo-wolf.png" alt="Animal Project Logo" style="width:120px; height:120px; object-fit:contain; display:block; margin:0 auto 15px auto; filter:invert(100%); transition: transform 0.3s ease;">
         <h3>Animal Welfare Website</h3>
         <p>Web deployed website with developed frontend.</p>
     </div>
+
     <div class="project" onclick="window.location.href='https://website-sql-lite-flask.onrender.com'">
+        <img src="Assets/index-logos/incidex_logo_for_port.png" alt="Attendance Logo">
         <h3>Attendance System</h3>
         <p>Web-based attendance management system.</p>
     </div>
+
     <div class="project" onclick="window.location.href='qrapp.html'">
+        <img src="Assets/index-logos/qr-code.png" alt="QR Logo" >
         <h3>QR Generation App</h3>
         <p>QR-based mobile attendance system.</p>
     </div>
+
     <div class="project" onclick="window.location.href='https://omkartalekar06.github.io/Snippet-Manager/'">
+        <img src="Assets/index-logos/logo2.png" alt="Snippet Logo">
         <h3>Snippet Manager</h3>
         <p>QR authenticated Snippet Management System.</p>
     </div>
+
 </div>
+
 
     <div class="cta">
         <h2>Open to Internships & Collaborations</h2>
