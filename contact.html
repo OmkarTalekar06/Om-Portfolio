@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Virtual Card</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0f172a;
+    font-family: "Segoe UI", sans-serif;
+    overflow: hidden;
+    color: #e5e7eb;
+}
+
+/* ===== STAR BACKGROUND ===== */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 40% 70%, white, transparent),
+        radial-gradient(3px 3px at 60% 20%, white, transparent),
+        radial-gradient(2px 2px at 80% 80%, white, transparent),
+        radial-gradient(3px 3px at 10% 90%, white, transparent);
+    background-size: 200px 200px;
+    animation: starsMove 60s linear infinite;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+@keyframes starsMove {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+
+/* ===== CARD ===== */
+.card {
+    width: 360px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* ===== COMMON ===== */
+.card-front,
+.card-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    background: #020617;
+    border: 1px solid #1e293b;
+    box-shadow: 0 0 25px rgba(56,189,248,0.15);
+}
+
+/* ===== FRONT (IMPROVED) ===== */
+.card-front {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    gap: 12px;
+
+    transform: translateX(5%);   /* ✅ shifts entire front content right */
+}
+
+
+
+.photo {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #38bdf8;
+}
+
+.details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical centering */
+    gap: 4px;
+}
+
+
+.details h3 {
+    font-size: 17px;
+    color: #38bdf8;
+    margin-bottom: 4px;
+}
+
+.details p {
+    color: #cbd5f5;
+    line-height: 1.3;
+}
+
+
+/* ===== BACK ===== */
+.card-back {
+    transform: rotateY(180deg);
+    text-align: center;
+    padding: 18px;
+}
+
+.card-back h3 {
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.card-back img {
+    width: 95px;
+    padding: 5px;
+    background: white;
+    border-radius: 6px;
+    border: 2px solid #38bdf8;
+}
+
+.card-back p {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.msg {
+    margin-top: 8px;
+    font-size: 12px;
+    color: #cbd5f5;
+}
+
+/* ===== HOVER ===== */
+.card:hover .card-front,
+.card:hover .card-back {
+    box-shadow: 0 0 35px rgba(56,189,248,0.35);
+}
+.front-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+
+    padding-left: 5%;   /* ✅ shifts photo + details inside card */
+}
+.details i {
+    width: 16px;
+    margin-right: 8px;
+    color: #38bdf8;
+    font-size: 14px;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<div class="card" onclick="flipCard()">
+    <div class="card-inner">
+
+        <!-- FRONT -->
+<div class="card-front">
+    <div class="front-content">
+        <div class="photo">
+            <img src="logo-me.png">
+        </div>
+
+<div class="details">
+    <h3>Omkar Santosh Talekar</h3>
+
+    <p><i class="fa-solid fa-id-card"></i> VC-2025</p>
+    <p><i class="fa-solid fa-phone"></i> 9594141490</p>
+    <p style="font-size: 14px;"><i class="fa-solid fa-envelope"></i> omkartalekar@zohomail.in</p>
+    <p><i class="fa-solid fa-globe"></i> Omkar.dev</p>
+    <p><i class="fa-solid fa-graduation-cap"></i> Computer Science</p>
+</div>
+
+    </div>
+</div>
+
+
+        <!-- BACK -->
+        <div class="card-back">
+            <h3>Scan to Connect</h3>
+            <img src="qr-code.png" style="height: 90px; width: 90px;">
+            <p>Role: Student Developer</p>
+            <div class="msg">
+                This is my official virtual identity card.<br>
+                Built with passion & code 💙
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+function flipCard() {
+    document.querySelector(".card").classList.toggle("flipped");
+}
+</script>
+
+</body>
+</html>
